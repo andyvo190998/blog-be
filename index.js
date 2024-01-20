@@ -39,6 +39,10 @@ app.use("/api/posts", postRoutes)
 app.use("/api/auth", authRoute)
 app.use("/api/users", userRoutes)
 
+app.get("/test", (req, res) => {
+    return res.status(200).json({ test: 'here' })
+})
+
 app.get("/", (req, res) => {
     return res.status(200).json(`Hello world, Express is listening on PORT: ${PORT}!`)
 })
