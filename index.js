@@ -30,13 +30,13 @@ app.use(cors(corsOptions));
 app.use(express.json())
 app.use(cookieParser())
 
-app.post('/api/upload', upload.single('file'), (req, res) => {
-    const file = req.file
-    res.status(200).json(file.filename)
-})
-app.use("/api/posts", postRoutes)
-app.use("/api/auth", authRoute)
-app.use("/api/users", userRoutes)
+// app.post('/api/upload', upload.single('file'), (req, res) => {
+//     const file = req.file
+//     res.status(200).json(file.filename)
+// })
+// app.use("/api/posts", postRoutes)
+// app.use("/api/auth", authRoute)
+// app.use("/api/users", userRoutes)
 
 app.get("/", (req, res) => {
     return res.status(200).json("Hello world!")
