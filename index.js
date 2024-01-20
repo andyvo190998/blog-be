@@ -38,6 +38,7 @@ app.use(cookieParser())
 // app.use("/api/auth", authRoute)
 // app.use("/api/users", userRoutes)
 
+
 app.get("/", (req, res) => {
     return res.status(200).json("Hello world!")
 })
