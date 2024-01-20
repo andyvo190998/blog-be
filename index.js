@@ -43,7 +43,7 @@ app.get("/test", (req, res) => {
     return res.status(200).json({ test: 'here' })
 })
 
-app.get("/", (req, res) => {
+app.get("/123/", (req, res) => {
     return res.status(200).json(`Hello world, Express is listening on PORT: ${PORT}!`)
 })
 
