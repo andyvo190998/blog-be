@@ -21,6 +21,7 @@ export const register = (req, res) => {
             hash
         ]
 
+
         db.query(insertUserQuery, [values], (err, data) => {
             if (err) return res.json(err)
             return res.status(200).json("User has been created.")
