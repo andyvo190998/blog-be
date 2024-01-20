@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
 // const upload = multer({ storage: storage })
 
 const ENV = dotenv.config().parsed
-const PORT = ENV.PORT === undefined ? 3000 : ENV.PORT
+const PORT = ENV === undefined || ENV.PORT === undefined ? 3000 : ENV.PORT
 const corsOptions = {
     origin: true,
     credentials: true,
