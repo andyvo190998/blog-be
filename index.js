@@ -1,7 +1,7 @@
 import express from 'express'
-// import postRoutes from './routes/posts.js'
-// import authRoute from './routes/auth.js'
-// import userRoutes from './routes/users.js'
+import postRoutes from './routes/posts.js'
+import authRoute from './routes/auth.js'
+import userRoutes from './routes/users.js'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
         cb(null, Date.now() + file.originalname)
     }
 })
-// const upload = multer({ storage: storage })
+const upload = multer({ storage: storage })
 
 const ENV = dotenv.config().parsed
 // console.log(process.env.PORT)
@@ -31,13 +31,13 @@ app.use(cors(corsOptions));
 app.use(express.json())
 app.use(cookieParser())
 
-// app.post('/api/upload', upload.single('file'), (req, res) => {
-//     const file = req.file
-//     res.status(200).json(file.filename)
-// })
-// app.use("/api/posts", postRoutes)
-// app.use("/api/auth", authRoute)
-// app.use("/api/users", userRoutes)
+app.post('/api/upload', upload.single('file'), (req, res) => {
+    const file = req.file
+    res.status(200).json(file.filename)
+})
+app.use("/api/posts", postRoutes)
+app.use("/api/auth", authRoute)
+app.use("/api/users", userRoutes)
 
 app.get("/", (req, res) => {
     return res.status(200).json(`Hello world, Express is listening on PORT: ${PORT}!`)
