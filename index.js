@@ -18,7 +18,8 @@ const storage = multer.diskStorage({
 // const upload = multer({ storage: storage })
 
 const ENV = dotenv.config().parsed
-const PORT = ENV === undefined || ENV.PORT === undefined ? 3000 : ENV.PORT
+// console.log(process.env.PORT)
+const PORT = process.env.PORT === undefined ? 3000 : process.env.PORT
 const corsOptions = {
     origin: true,
     credentials: true,
@@ -39,7 +40,7 @@ app.use(cookieParser())
 // app.use("/api/users", userRoutes)
 
 app.get("/", (req, res) => {
-    return res.status(200).json("Hello world!")
+    return res.status(200).json(`Hello world, Express is listening on PORT: ${PORT}!`)
 })
 
 app.listen(PORT, () => {
