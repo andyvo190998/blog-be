@@ -1,11 +1,11 @@
 import express from 'express'
-import postRoutes from './routes/posts.js'
-import authRoute from './routes/auth.js'
-import userRoutes from './routes/users.js'
+// import postRoutes from './routes/posts.js'
+// import authRoute from './routes/auth.js'
+// import userRoutes from './routes/users.js'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
-import jwt from 'jsonwebtoken'
+// import jwt from 'jsonwebtoken'
 import multer from 'multer'
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
         cb(null, Date.now() + file.originalname)
     }
 })
-const upload = multer({ storage: storage })
+// const upload = multer({ storage: storage })
 
 const ENV = dotenv.config().parsed
 const PORT = ENV.PORT === undefined ? 3000 : ENV.PORT
