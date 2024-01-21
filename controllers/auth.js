@@ -47,9 +47,11 @@ export const login = (req, res) => {
         const expiryDate = new Date(Date.now() + expirationTime);
 
         res.cookie("access_token", token, {
+            secure: true,
             httpOnly: false,
             expires: expiryDate,
-        }).status(200).json(token)
+            sameSite: 'none',
+        }).status(200).json(other)
 
     })
 }
