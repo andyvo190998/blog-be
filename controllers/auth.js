@@ -49,7 +49,7 @@ export const login = (req, res) => {
         res.cookie("access_token", token, {
             httpOnly: false,
             expires: expiryDate,
-        }).status(200).json(other)
+        }).status(200).json(token)
 
     })
 }
